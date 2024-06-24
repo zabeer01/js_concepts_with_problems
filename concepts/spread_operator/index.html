@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spread operator</title>
+</head>
+<body>
+    <p>this is body</p>
+    <script>
+        let max = Math.max(12,45,3);
+        /* console.log(max); */
+        let numbers = [2,3,67,1,10];
+        let maxNumber = Math.max(...numbers);
+        //  let maxNumber = Math.max(...numbers);
+        
+        console.log(maxNumber);
+        console.log(numbers);
+        // we shouldnt use mathmax with braket
+        // when we need the vals from the array then we use spread operator. 
+        console.log(...numbers);
+
+
+        let numbers2 = numbers;
+        numbers2.push(23);
+        console.log(numbers);
+        console.log(numbers2);
+        //it keeps the reference 
+        //it when it call the reference of pointer and it add values from another memory.. 
+
+        let numbers3 = [...numbers];
+        numbers3.push(45);
+        console.log(numbers);
+        console.log(numbers3);
+
+    </script>
+</body>
+</html>
