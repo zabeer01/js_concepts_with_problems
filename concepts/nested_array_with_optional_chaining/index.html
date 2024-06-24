@@ -27,10 +27,16 @@
         name: 'zabeer',
         address: {
             street: {
-                
+                first: '35 lake drive',
+                second: 'third flood',
+                side: 'lake side'
             }
         }
       }
+      let full_adress = user.address.street.first +' , '+ user.address.street.second + ' , '+user.address.street.side;
+      console.log(full_adress);
+      console.log(user.address.street.first);
+      console.log(user.address.stret?.first);
     </script>
 </body>
 </html>
