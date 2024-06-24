@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nested object</title>
+</head>
+<body>
+    
+    <script>
+      let data = {
+        count: 5000,
+        data: [
+            {id:1,name:'zabeer',job:'software engineer'},
+            {id:2,name:'tpn',job:'chef'}
+        ]
+      }
+      let target = 0;
+      let target2 = data.data.length - 1
+      let person_job = data.data[0].job;
+      console.log(target);
+      console.log(target2);
+      console.log(person_job);
+
+      let user = {
+        id: 901,
+        name: 'zabeer',
+        address: {
+            street: {
+                
+            }
+        }
+      }
+    </script>
+</body>
+</html>
