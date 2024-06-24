@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>ajax_post</title>
+
+   <style>
+      table {
+         width: 100%;
+         border-collapse: collapse;
+      }
+
+      th, td {
+         border: 1px solid #ddd;
+         padding: 8px;
+      }
+
+      th {
+         background-color: #f2f2f2;
+         text-align: left;
+      }
+
+      img {
+         max-width: 100px;
+      }
+   </style>
+</head>
+
+<body>
+    <p>get is used in ajax to fetch the data from an api.. many popular ajax is fetch, jquery ajax and axios.. </p>
+    <button onclick="getData()">fetch data // see in console</button> <br> <br>
+    <button onclick="insertData()">insert data // see in console</button> 
+   <div id="data-container"></div>
+</body>
+
+<script>
+   function getData() {
+      let url = "https://crud.teamrabbil.com/api/v1/ReadProduct";
+      let config = {
+         method: 'GET',
+      };
+      fetch(url, config)
+         .then(response => response.json())
+         .then(result => {
+            console.log(result);
+            displayData(result.data);
+         })
+         .catch(err => console.log('error', err));
+   }
+
+   function insertData() {
+      let url = "https://crud.teamrabbil.com/api/v1/CreateProduct";
+      let data = {
+        Img : 'zabeer',
+        ProductCode: 'zabeer',
+        ProductName: 'zabeer',
+        TotalPrice: 'zabeer',
+        UnitPrice: 'zabeer'
+      }
+      let config = {
+         method: 'POST',
+         headers: {
+            'accept':'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+         
+      };
+      fetch(url, config)
+         .then(response => response.json())
+         .then(result => {
+            console.log(result);
+            displayData(result.data);
+         })
+         .catch(err => console.log('error', err));
+   }
+
+   function displayData(data) {
+   let container = document.getElementById('data-container');
+   container.innerHTML = ''; // Clear previous data
+
+   let table = document.createElement('table');
+
+   let thead = document.createElement('thead');
+   let headerRow = document.createElement('tr');
+   let headers = ['ID', 'Product Name', 'Product Code', 'Image', 'Unit Price', 'Quantity', 'Total Price', 'Created Date'];
+   headers.forEach(headerText => {
+      let th = document.createElement('th');
+      th.innerText = headerText;
+      headerRow.appendChild(th);
+   });
+   thead.appendChild(headerRow);
+   table.appendChild(thead);
+
+   let tbody = document.createElement('tbody');
+   data.forEach(item => {
+      let row = document.createElement('tr');
+
+      let idCell = document.createElement('td');
+      idCell.innerText = item._id;
+      row.appendChild(idCell);
+
+      let nameCell = document.createElement('td');
+      nameCell.innerText = item.ProductName;
+      row.appendChild(nameCell);
+
+      let codeCell = document.createElement('td');
+      codeCell.innerText = item.ProductCode;
+      row.appendChild(codeCell);
+
+      let imgCell = document.createElement('td');
+      let img = document.createElement('img');
+      img.src = item.Img;
+      img.alt = item.ProductName;
+      imgCell.appendChild(img);
+      row.appendChild(imgCell);
+
+      let unitPriceCell = document.createElement('td');
+      unitPriceCell.innerText = item.UnitPrice;
+      row.appendChild(unitPriceCell);
+
+      let qtyCell = document.createElement('td');
+      qtyCell.innerText = item.Qty;
+      row.appendChild(qtyCell);
+
+      let totalPriceCell = document.createElement('td');
+      totalPriceCell.innerText = item.TotalPrice;
+      row.appendChild(totalPriceCell);
+
+      let dateCell = document.createElement('td');
+      dateCell.innerText = new Date(item.CreatedDate).toLocaleString();
+      row.appendChild(dateCell);
+
+      tbody.appendChild(row);
+   });
+   table.appendChild(tbody);
+
+   container.appendChild(table);
+}
+
+</script>
+
+</html>

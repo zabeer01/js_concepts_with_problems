@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>arrayBuilding</title>
+</head>
+
+<body>
+   <h1>array building</h1>
+   <p id="demo"></p>
+   <ul id="list">
+      <li>zabeer</li>
+      <li>lamia</li>
+      <li>shmit</li>
+      <li>haseeb</li>
+   </ul>
+   <ul id="list-jq">
+      <li>zabeer</li>
+      <li>lamia</li>
+      <li>shmit</li>
+      <li>haseeb</li>
+   </ul>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+   const list = document.querySelector('#list');
+   list.addEventListener('click',  (e) => {
+      if (e.target.tagName.toLowerCase() === 'li') {
+         /*  e.target.parentNode.removeChild(e.target); */
+         e.target.style.color = 'red';
+      }
+   })
+
+</script>
+<script>
+ $(document).ready(function () {
+    $('#list-jq').on('click', 'li', function (e) {
+        $(this).css('color', 'blue');
+    });
+});
+
+/* 
+$(document).ready(() => {
+    $('#list-jq').on('click', 'li', (e) => {
+        $(e.currentTarget).css('color', 'blue');
+    });
+});
+*/
+
+</script>
+
+</html>
