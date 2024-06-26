@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>two sum problem</title>
+</head>
+
+<body>
+    <p>this is body</p>
+    <script>
+        let numbers = [-2, 4, 10, 3, 5]
+        let target = 1;
+        let result=[];
+        let index = [];
+      
+
+        const findnumbers = (nums, target) => {
+            for (let i = 0; i < nums.length; i++) {
+
+                let otherNumber = target - nums[i];
+                if (nums.includes(otherNumber)) {
+                    result = [nums[i],otherNumber];
+                    let foundIndex = nums.indexOf(otherNumber);
+              /*       index.push(i);
+                    index.push(foundIndex); */
+                    index = [...index, i, foundIndex];
+                    break;
+                } 
+            }
+            
+            console.log('result = [' + result + ']');
+            console.log('index = [' + index + ']');
+            return;
+        }
+
+
+
+        findnumbers(numbers, target)
+        //10,5
+
+    </script>
+</body>
+
+</html>

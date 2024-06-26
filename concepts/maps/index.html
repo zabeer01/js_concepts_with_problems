@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maps</title>
+</head>
+<body>
+    
+<script>
+    let numbers = [2,8,65,234,235];
+    let numbersDouble = Math.min(...numbers)
+    console.log(numbersDouble);
+
+    let people = ['zabeer','rahim','karim'];
+    const peopleLength = people.map(person => person.length);
+    console.log(peopleLength); 
+
+    let objs = [
+        {
+            id: 3. ,
+            name:'zabeer',
+            hobby:'coding'
+        },
+        {
+            id:12,
+            name:'sabit',
+            hobby: 'smoking'
+        },
+        {
+            id:43,
+            name:'saim',
+            hobby: 'farming'
+        }
+    ];
+    const hobbies = objs.map(obj => obj.hobby );
+    console.log(hobbies);
+
+</script>    
+</body>
+
+</html>
